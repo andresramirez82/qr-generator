@@ -568,6 +568,20 @@ class QRGeneratorApp:
         viewer.title("Visualizar QR")
         viewer.geometry("500x500")
         
+        # Configurar para que siempre esté al frente
+        viewer.transient(self.root)  # Asociar con la ventana principal
+        viewer.lift()  # Traer al frente
+        viewer.focus_force()  # Forzar el foco
+        viewer.grab_set()  # Hacer modal (bloquea interacción con ventana principal)
+        
+        # Centrar la ventana en la pantalla
+        viewer.update_idletasks()
+        width = viewer.winfo_width()
+        height = viewer.winfo_height()
+        x = (viewer.winfo_screenwidth() // 2) - (width // 2)
+        y = (viewer.winfo_screenheight() // 2) - (height // 2)
+        viewer.geometry(f'{width}x{height}+{x}+{y}')
+        
         # Cargar y mostrar imagen
         img = Image.open(image_path)
         img.thumbnail((450, 450), Image.Resampling.LANCZOS)
@@ -576,6 +590,16 @@ class QRGeneratorApp:
         label = ctk.CTkLabel(viewer, image=photo, text="")
         label.image = photo
         label.pack(expand=True, pady=20)
+        
+        # Botón para cerrar
+        close_btn = ctk.CTkButton(
+            viewer,
+            text="Cerrar",
+            command=viewer.destroy,
+            width=120,
+            height=35
+        )
+        close_btn.pack(pady=(0, 20))
     
     def copy_url(self, url):
         """Copia la URL al portapapeles"""
