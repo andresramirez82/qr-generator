@@ -19,7 +19,17 @@ class QRGeneratorApp:
         self.root = ctk.CTk()
         self.root.title(f"QR Generator Pro v{config.APP_VERSION}")
         self.root.geometry("1000x700")
-        self.root.minsize(350, 500)  # Tamaño mínimo para pantallas pequeñas
+        self.root.minsize(350, 500)
+        
+        # Establecer icono de la aplicación
+        try:
+            if os.path.exists("app_icon.ico"):
+                self.root.iconbitmap("app_icon.ico")
+            elif os.path.exists("app_icon.png"):
+                icon_img = ImageTk.PhotoImage(file="app_icon.png")
+                self.root.wm_iconphoto(True, icon_img)
+        except Exception as e:
+            print(f"No se pudo cargar el icono: {e}")
         
         # Inicializar componentes
         self.qr_gen = QRGenerator()

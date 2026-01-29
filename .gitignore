@@ -10,6 +10,7 @@ venv/
 env/
 ENV/
 
+
 # Base de datos
 *.db
 *.db-journal
@@ -30,3 +31,8 @@ desktop.ini
 
 # Logs
 *.log
+
+
+#Particulares
+qr_images
+QRGeneratorPro.spec

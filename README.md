@@ -9,7 +9,8 @@ Aplicación de escritorio multiplataforma (Windows, macOS, Linux) que genera có
 - 💾 **Base de datos local**: Almacena historial de QRs generados con SQLite
 - 🔍 **Búsqueda**: Encuentra QRs por URL o notas
 - 📊 **Estadísticas**: Visualiza total de QRs y URLs únicas
-- 🎨 **Interfaz moderna**: Diseño oscuro con CustomTkinter
+- 🎨 **Interfaz moderna**: Diseño responsive con selector de tema (Claro/Oscuro/Sistema)
+- 🖼️ **Icono profesional**: Nuevo diseño premium de aplicación
 - 📝 **Notas**: Agrega notas a cada QR generado
 - 🌐 **Acciones rápidas**: Abre URLs, copia al portapapeles, visualiza QRs
 
