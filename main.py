@@ -4,6 +4,7 @@ from PIL import Image, ImageTk
 import os
 from qr_generator import QRGenerator
 from database import QRDatabase
+import config
 import webbrowser
 
 class QRGeneratorApp:
@@ -11,12 +12,12 @@ class QRGeneratorApp:
     
     def __init__(self):
         # Configuración de CustomTkinter
-        ctk.set_appearance_mode("dark")
-        ctk.set_default_color_theme("blue")
+        ctk.set_appearance_mode(config.APPEARANCE_MODE)
+        ctk.set_default_color_theme(config.COLOR_THEME)
         
         # Ventana principal
         self.root = ctk.CTk()
-        self.root.title("QR Generator Pro")
+        self.root.title(f"QR Generator Pro v{config.APP_VERSION}")
         self.root.geometry("1000x700")
         self.root.minsize(350, 500)  # Tamaño mínimo para pantallas pequeñas
         
@@ -113,6 +114,12 @@ class QRGeneratorApp:
         # Crear widgets de la columna derecha
         self.create_history_widgets()
     
+    def change_appearance_mode(self, new_appearance_mode: str):
+        """Cambia el modo de apariencia de la aplicación"""
+        # Extraer el modo (ej: "System" de "System 🖥️")
+        mode = new_appearance_mode.split(" ")[0]
+        ctk.set_appearance_mode(mode)
+    
     def get_responsive_font_size(self, base_size):
         """Calcula tamaño de fuente responsive"""
         if self.is_small_screen:
@@ -132,13 +139,37 @@ class QRGeneratorApp:
         scroll_frame = ctk.CTkScrollableFrame(self.left_frame)
         scroll_frame.pack(fill="both", expand=True, padx=5, pady=5)
         
-        # Título
+        # Título y Selector de Tema
+        header_frame = ctk.CTkFrame(scroll_frame, fg_color="transparent")
+        header_frame.pack(fill="x", pady=(15, 10), padx=5)
+        
         title = ctk.CTkLabel(
-            scroll_frame,
+            header_frame,
             text="🔲 Generar Código QR",
             font=ctk.CTkFont(size=20, weight="bold")
         )
-        title.pack(pady=(15, 10))
+        title.pack(side="left", padx=(10, 5))
+        
+        version_label = ctk.CTkLabel(
+            header_frame,
+            text=f"v{config.APP_VERSION}",
+            font=ctk.CTkFont(size=12),
+            text_color="gray"
+        )
+        version_label.pack(side="left", anchor="s", pady=(0, 5))
+        
+        self.appearance_mode_optionemenu = ctk.CTkOptionMenu(
+            header_frame,
+            values=["System 🖥️", "Light ☀️", "Dark 🌙"],
+            command=self.change_appearance_mode,
+            width=120,
+            height=28
+        )
+        self.appearance_mode_optionemenu.pack(side="right", padx=10)
+        
+        # Mapeo para inicializar el valor correcto
+        mode_map = {"System": "System 🖥️", "Light": "Light ☀️", "Dark": "Dark 🌙"}
+        self.appearance_mode_optionemenu.set(mode_map.get(config.APPEARANCE_MODE, "System 🖥️"))
         
         # Frame para URL
         url_frame = ctk.CTkFrame(scroll_frame)

@@ -1,4 +1,4 @@
-# QR Generator Pro
+# QR Generator Pro v1.1.0
 
 Aplicación de escritorio multiplataforma (Windows, macOS, Linux) que genera códigos QR con logo personalizable y almacena el historial en una base de datos local.
 

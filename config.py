@@ -1,6 +1,8 @@
 # Configuración de QR Generator Pro
 # Edita este archivo para personalizar la aplicación
 
+APP_VERSION = "1.1.0"
+
 # === CONFIGURACIÓN DE QR ===
 
 # Tamaño del QR (1-40, donde mayor es más grande)
@@ -34,8 +36,8 @@ LOGO_MARGIN_RATIO = 1.2
 
 # === CONFIGURACIÓN DE INTERFAZ ===
 
-# Tema de la aplicación ("dark" o "light")
-APPEARANCE_MODE = "dark"
+# Tema de la aplicación ("System", "Dark", "Light")
+APPEARANCE_MODE = "System"
 
 # Esquema de color ("blue", "green", "dark-blue")
 COLOR_THEME = "blue"

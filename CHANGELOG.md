@@ -2,6 +2,20 @@
 
 Todos los cambios notables de este proyecto serán documentados en este archivo.
 
+## [1.1.0] - 2026-01-29
+
+### ✨ Nuevas Características
+- **Selector de Tema Dinámico**: Se añadió un menú desplegable en la interfaz para cambiar entre los modos Claro, Oscuro y Sistema.
+- **Tema del Sistema por Defecto**: La aplicación ahora detecta y utiliza automáticamente la configuración de apariencia del sistema operativo.
+- **Versionado Interno**: Implementación de un sistema de versiones centralizado en la configuración.
+
+### 🎨 Mejoras de Interfaz
+- Iconos descriptivos en el selector de tema (🖥️, ☀️, 🌙).
+- Título de la ventana dinámico que muestra la versión actual.
+- Etiqueta de versión visible en el panel de generación.
+
+---
+
 ## [1.0.0] - 2026-01-23
 
 ### 🎉 Lanzamiento Inicial
@@ -63,7 +77,7 @@ Todos los cambios notables de este proyecto serán documentados en este archivo.
 
 ## [Futuro] - Mejoras Planificadas
 
-### Versión 1.1.0 (Próximamente)
+### Versión 1.2.0
 - [ ] Exportar historial a CSV/Excel
 - [ ] Importar URLs desde archivo TXT
 - [ ] Selector de colores en la UI
@@ -72,14 +86,11 @@ Todos los cambios notables de este proyecto serán documentados en este archivo.
 - [ ] Drag & drop para logos
 - [ ] Copiar QR al portapapeles
 - [ ] Imprimir QR directamente
-
-### Versión 1.2.0
 - [ ] Generación masiva (batch) desde CSV
 - [ ] Editor de QR (modificar después de generar)
 - [ ] Múltiples tamaños de exportación
 - [ ] Formatos adicionales (SVG, PDF)
 - [ ] Temas personalizables
-- [ ] Modo claro/oscuro automático
 
 ### Versión 2.0.0
 - [ ] QR dinámicos con analytics
@@ -142,4 +153,4 @@ Este proyecto es de código abierto y está disponible bajo la licencia MIT.
 
 ---
 
-**Última actualización**: 2026-01-23
+**Última actualización**: 2026-01-29
